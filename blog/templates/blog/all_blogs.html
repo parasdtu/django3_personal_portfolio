@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+{% block content %}
+
+<div class="p-3 mb-2 bg-light text-dark">
+
+<center>
+
+  <div class="shadow-none p-3 mb-5 bg-white rounded">
+    <h1 style="color:DarkBlue;font-family:courier;background-color:Pink">
+      My favourite blogs...
+    </h1>
+  </div>
+
+  <h2 style="color:Pink;font-family:cursive">
+    💕 Appie loves {{blogs.count}} blog{{blogs.count|pluralize}} 💕
+  </h2>
+
+<br>
+<br>
+
+</center>
+
+{% for blog in blogs %}
+
+<a href="{% url 'blog:detail' blog.id %}" class="text-info">
+  <h2 style="font-family:courier;color:DarkBlue;background-color:White">
+      {{ blog.title }}
+  </h2>
+  <h6 style="color:Blue;font-family:cursive">
+    {{blog.date|date:'M d Y'|upper}}
+  </h6>
+  <p style="color:Blue;font-family:cursive">
+    {{ blog.description|striptags|truncatechars:250}}....
+  </p>
+  <br>
+</a>
+
+{% endfor %}
+
+<h2 style="text-align:right;color:Pink;font-family:cursive">Apoorva Sharma 🌸</h2>
+
+</div>
+
+{% endblock %}

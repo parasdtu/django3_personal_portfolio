@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<center>
+
+{% block content %}
+
+  <div class="p-3 mb-2 bg-light text-dark">
+
+    <div class="shadow-none p-3 mb-5 bg-white rounded">
+
+    <h1 style="color:White;font-family:courier;background-color:LightBlue">{{ blog.title }}</h1>
+
+    <h6 style="color:Blue;font-family:courier;">--{{ blog.date|date:'F jS Y'}}--</h6>
+
+    <p style="color:DarkBlue;font-family:courier">
+
+      {{blog.description|safe}}
+
+    </p>
+
+  </div>
+
+</div>
+
+{% endblock %}
+
+<h2 style="text-align:right;color:Pink;font-family:cursive">Apoorva Sharma 🌸</h2>
+
+
+</center>

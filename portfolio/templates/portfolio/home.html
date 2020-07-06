@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+{% load static %}
+{% block content %}
+<div class="p-3 mb-2 bg-light text-dark">
+<center>
+  <div class="shadow-lg p-3 mb-5 bg-LightBlue rounded">
+    <h1 style="color:DarkBlue;font-family:courier;text-align:center;background-color:LightBlue">
+      Appie's Personal Portfolio🙋🏻‍♀️
+    </h1>
+  </div>
+    <h3 style="color:Purple;font-family:cursive;text-align:center">
+      ☺️ “Use your smile to change the world; don’t let the world change your smile.” ☺️
+    </h3>
+    <h4 style ="text-align:right">
+    <p><a href="{% static 'portfolio/Apoorva.pdf' %}" class="text-info">Resume | </a>
+    <a href="{% url 'blog:all_blogs'%}" class="text-info">Blog</a></p>
+    </h4>
+    <br>
+    <br>
+    <br>
+
+
+    {% for project in projects %}
+    <div class="shadow-lg p-3 mb-5 bg-LightBlue rounded">
+      <h2 style ="font-family:garamond;color:DarkBlue">
+        {{ project.title }}
+      </h2>
+    <div class="shadow-lg p-3 mb-5 bg-LightBlue rounded">
+    <p style ="font-family:cursive;color:LightBlue">
+      {{ project.description }}
+    <p>
+    <img src="{{ project.image.url }}" height=200 width=200>
+    {% if project.url %}
+    <br>
+    <a href="{{ project.url }}">
+      Click to connect
+    </a>
+    <br>
+    <br>
+
+    {% endif %}
+
+    {% endfor %}
+
+
+
+</center>
+
+<h2 style="text-align:right;color:Pink;font-family:cursive">Apoorva Sharma 🌸</h2>
+
+</div>
+
+{% endblock %}
