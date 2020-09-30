@@ -1,53 +1,67 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+{% extends "portfolio/base.html" %}
 {% load static %}
 {% block content %}
-<div class="p-3 mb-2 bg-light text-dark">
-<center>
-  <div class="shadow-lg p-3 mb-5 bg-LightBlue rounded">
-    <h1 style="color:DarkBlue;font-family:courier;text-align:center;background-color:LightBlue">
-      Appie's Personal Portfolio🙋🏻‍♀️
-    </h1>
+<Style type='text/css' >body{background-color:rgb(0,0,0);background-image:url(https://www.commentnation.com/hotlinks/blue_watermark_hearts_on_white.jpg);background-position:top left;background-repeat:repeat;background-attachment:fixed;}</Style>
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <br>
+    <img src="{% static 'portfolio/photo-output.jpg' %}" class="img-fluid">
   </div>
-    <h3 style="color:Purple;font-family:cursive;text-align:center">
-      ☺️ “Use your smile to change the world; don’t let the world change your smile.” ☺️
-    </h3>
-    <h4 style ="text-align:right">
-    <p><a href="{% static 'portfolio/Apoorva.pdf' %}" class="text-info">Resume | </a>
-    <a href="{% url 'blog:all_blogs'%}" class="text-info">Blog</a></p>
-    </h4>
-    <br>
-    <br>
-    <br>
-
-
-    {% for project in projects %}
-    <div class="shadow-lg p-3 mb-5 bg-LightBlue rounded">
-      <h2 style ="font-family:garamond;color:DarkBlue">
-        {{ project.title }}
-      </h2>
-    <div class="shadow-lg p-3 mb-5 bg-LightBlue rounded">
-    <p style ="font-family:cursive;color:LightBlue">
-      {{ project.description }}
-    <p>
-    <img src="{{ project.image.url }}" height=200 width=200>
-    {% if project.url %}
-    <br>
-    <a href="{{ project.url }}">
-      Click to connect
-    </a>
-    <br>
-    <br>
-
-    {% endif %}
-
-    {% endfor %}
-
-
-
-</center>
-
-<h2 style="text-align:right;color:Pink;font-family:cursive">Apoorva Sharma 🌸</h2>
-
 </div>
+<br>
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <div class="card">
+      <div class="card-body">
+        <h1 id="hometext" class="font-weight-bold" style="font-family:Comic Sans MS;color:Lightblue">
+          I’m Apoorva, nice to meet you. Please take a look around! Thanks!
+        </h1>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br>
+<h2 class="mt-5" style="font-family:Comic Sans MS;color:darkblue">Wanna Connect?!</h2>
+<hr>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for info in infos %}
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <h4 style ="font-family:Comic Sans MS;color:Lightblue">
+              <center>{{ info.title }}</center>
+            </h4>
+            <img class="card-img-top" src="{{ info.image.url }}" width="300" height="300"/>
+            <div class="card-body">
+              <h5 class="card-text">
+                <center style ="font-family:Comic Sans MS;color:DarkBlue">
+                  {{ info.description }}</center>
+              </h5>
+              {% if info.url %}
+              <br>
+              <center>
+                <a href="{{ info.url }}" class="badge badge-pill badge-info">
+                Click to connect
+                </a>
+              </center>
+              <br>
+              <br>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<br>
+<footer class="text-muted">
+  <div class="container text-center">
+    <p>© Apoorva Sharma {% now "Y" %}</p>
+  </div>
+</footer>
 
 {% endblock %}
