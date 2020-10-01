@@ -1,1 +1,56 @@
-about
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+
+<br><br>
+
+    <div class="media">
+      <div class="media-body">
+        <br><br><br><br>
+        <hr>
+        <h1 class="mt-0 mb-3" style="font-family:Comic Sans MS;">
+          I'm a Backend Developer and in search of my new creative endeavours.
+        </h1>
+        <hr>
+      </div>
+      <img src="{% static 'portfolio/working.jpg' %}" class="ml-3" alt="..." height="400" width="500">
+    </div>
+
+    <br>
+
+    <div class="media">
+      <div class="media-body">
+        <br>
+        <br>
+        <br>
+        <hr>
+        <h2 class="mt-0" style="font-family:Comic Sans MS;">
+          <center>
+            <p style="color:LIGHTBLUE;">
+              I don’t like to define myself by the work I’ve done. I define myself by the work I want to do.
+              Skills can be taught, personality is inherent. I prefer to keep learning, continue challenging myself, and do interesting things that matter.
+              <br>
+              <br>
+               Fueled by high energy levels and boundless enthusiasm, I’m easily inspired and more then willing to follow my fascinations wherever they take me.
+               I’m passionate, expressive, multi-talented spirit with a natural ability to entertain and inspire.
+               I’m never satisfied to just come up with ideas. Instead I have an almost impulsive need to act on them.
+               <br><br>
+               My abundant energy fuels me in the pursuit of many interests, hobbies, areas of study and artistic endeavors.
+               <br><br>
+               You can reas more about my experience, skills, education and much more in the PDF attached.
+            </p>
+          </center>
+        </h2>
+        <hr>
+      </div>
+    </div>
+    <br>
+    <br>
+
+
+<br>
+<br>
+<br>
+
+
+{% endblock %}
