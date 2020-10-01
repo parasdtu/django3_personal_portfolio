@@ -42,15 +42,29 @@
             <a class="nav-link" href="{% url 'blog:all_blogs' %}">Blog</a>
           </li>
           <li>
-            <button class="btn btn-outline-light mx-2" href="#" target="_blank">Contact</button>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+<br>
+<div class="container">
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">
+        &times;
+        </span>
+      </button>
+    </div>
+  {% endfor %}
+</div>
   <div class="container">
     {% block content %}{% endblock %}
   </div>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

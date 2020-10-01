@@ -1,0 +1,35 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+
+<br>
+<br>
+<div class="jumbotron">
+<h1 class="text-center mb-5" style="font-family:Comic Sans MS;background-color:lightblue">
+  Got a project? Get in touch
+</h1>
+
+<form action="/contact/" method="POST">
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="name"><b>Name</b></label>
+      <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1"><b>Email address</b></label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber"><b>Phone Number</b></label>
+      <input type="phone" class="form-control" id="phone" name="phone">
+    </div>
+    <div class="form-group">
+      <label for="content"><b>Message</b></label>
+      <textarea class="form-control" id="content" name="content" rows="5" cols="30"></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-info">Submit</button>
+</form>
+</div>
+
+{% endblock %}
